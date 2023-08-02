@@ -10,7 +10,11 @@ function SearchBar() {
 
     const handleSearch = () => {
         const results = searchProduct(inputValue);
-        setSearchResults(results);
+        if (inputValue.trim() !== "") {
+            setSearchResults(results);
+        } else {
+            // Handle empty inputValue
+        }
     }
 
     return (
