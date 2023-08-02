@@ -1,30 +1,29 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { ProductsContext } from '../Context/ProductsContext';
 
 function SearchBar() {
     const [inputValue, setInputValue] = useState('');
+    const [searchResults, setSearchResults] = useState([]);
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        // Filter products based on inputValue
-    }
+    const { searchProduct } = useContext(ProductsContext);
 
-    const handleInputChange = (e) => {
-        setInputValue(e.target.value);
+
+    const handleSearch = () => {
+        const results = searchProduct(inputValue);
+        setSearchResults(results);
     }
 
     return (
         <div>
-            <form className="searchBar" onClick={handleSubmit}>
-                <input
-                    type="text"
-                    placeholder="Search Products"
-                    value={inputValue}
-                    onChange={handleInputChange}
-                />
-                <button type="submit">
-                    Search
-                </button>
-            </form>
+            <input
+                type="text"
+                placeholder="Search Products"
+                value={inputValue}
+                onChange={(e) => setInputValue(e.target.value)}
+            />
+            <button type="submit" onClick={handleSearch}>
+                Search
+            </button>
         </div>
     )
 }
