@@ -1,8 +1,9 @@
-//  this is the main part of the app where everything starts!
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { UserProvider } from './contexts/UserContext';
 import ProductList from './components/ProductList';
+import SearchBar from './Components/SearchBar';
+import ProductsContext from './Context/ProductsContext';
 
 // We're using special tools called "React" and "axios" to help us create our app.
 // We also import the "UserProvider" and "ProductList" components that we'll use later.
@@ -39,6 +40,8 @@ const App = () => {
         <h1 className="mb-4">EazyMarket</h1>
         {/* We call the ProductList component and give it the list of things (products) as a present. */}
         <ProductList products={products} />
+        {/* We call the SearchBar component here, which is available in the Development branch */}
+        <SearchBar />
       </div>
     </UserProvider>
   );
