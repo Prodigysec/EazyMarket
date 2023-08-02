@@ -1,5 +1,6 @@
 import React, { useState, useContext } from "react";
 import { ProductsContext } from '../Context/ProductsContext';
+import ProductCard from '../Components/ProductCard';
 
 function SearchBar() {
     const [inputValue, setInputValue] = useState('');
@@ -30,7 +31,9 @@ function SearchBar() {
                     Search
                 </button>
             </div>
-            {/* Create div to store searchResults */}
+            {searchResults.map((product) => (
+                <ProductCard product={product} />
+            ))}
         </>
     )
 }
