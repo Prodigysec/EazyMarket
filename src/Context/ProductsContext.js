@@ -1,5 +1,28 @@
-import {createContext} from "react";
+import { createContext, useEffect, useState } from "react";
 
-const ProductsContext = createContext()
+export const ProductsContext = createContext()
 
-export default ProductsContext;
+const ProductsProvider = ({ children }) => {
+    const [products, setProducts] = useState([]);
+
+    useEffect(() => {
+        fetch('https://fakestoreapi.com/products')
+            .then(res => res.json())
+            .then(data => setProducts(data))
+    })
+
+    const searchProduct = (productName) => {
+        const filteredProducts = products.filter((product) =>
+            product.title.toLowerCase().includes(productName.toLowerCase())
+        );
+        return filteredProducts;
+    };
+
+    return (
+        <ProductsContext.Provider value={{ products, searchProduct }}>
+            {children}
+        </ProductsContext.Provider>
+    );
+}
+
+export default ProductsProvider;
