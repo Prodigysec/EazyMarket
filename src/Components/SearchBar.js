@@ -14,17 +14,20 @@ function SearchBar() {
     }
 
     return (
-        <div>
-            <input
-                type="text"
-                placeholder="Search Products"
-                value={inputValue}
-                onChange={(e) => setInputValue(e.target.value)}
-            />
-            <button type="submit" onClick={handleSearch}>
-                Search
-            </button>
-        </div>
+        <>
+            <div>
+                <input
+                    type="text"
+                    placeholder="Search Products"
+                    value={inputValue}
+                    onChange={(e) => setInputValue(e.target.value)}
+                />
+                <button type="submit" onClick={handleSearch}>
+                    Search
+                </button>
+            </div>
+            {/* Create div to store searchResults */}
+        </>
     )
 }
 
