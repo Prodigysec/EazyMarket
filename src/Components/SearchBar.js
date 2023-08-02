@@ -1,6 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 
 function SearchBar() {
+    const [inputValue, setInputValue] = useState('');
+
+    const handleInputChange = (e) => {
+        setInputValue(e.target.value);
+    }
 
     return (
         <div>
@@ -8,6 +13,8 @@ function SearchBar() {
                 <input
                     type="text"
                     placeholder="Search Products"
+                    value={inputValue}
+                    onChange={handleInputChange}
                 />
                 <button type="submit">
                     Search
