@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { UserProvider } from './contexts/UserContext';
-import ProductList from './components/ProductList';
+import { UserProvider } from './Context/UserContext';
+import ProductList from './Components/ProductList';
 import SearchBar from './Components/SearchBar';
 import ProductsContext from './Context/ProductsContext';
 import ProductsProvider from './Context/ProductsContext';
