@@ -11,8 +11,15 @@ const ProductsProvider = ({ children }) => {
             .then(data => setProducts(data))
     })
 
+    const searchProduct = (productName) => {
+        const filteredProducts = products.filter((product) =>
+            product.title.toLowerCase().includes(productName.toLowerCase())
+        );
+        return filteredProducts;
+    };
+
     return (
-        <ProductsContext.Provider value={{ products }}>
+        <ProductsContext.Provider value={{ products, searchProduct }}>
             {children}
         </ProductsContext.Provider>
     );
