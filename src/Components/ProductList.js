@@ -6,15 +6,14 @@ import { Container, Row, Col } from 'react-bootstrap';
 import Cart from './Cart';
 import CategoryFilter from './CategoryFilter';
 import ProductListDisplay from './ProductListDisplay';
-import Wishlist from './Wishlist';
-import Favorites from './Favorites';
 
-// Define the main component 'ProductList' and pass it two props: 'products' and 'searchQuery'
+// Now, we want to make something called 'ProductList'.
+// It's like a special box that will hold everything related to showing products on our web page.
+// It takes a special message (prop) from the parent to know what products to show and what the user is searching for.
 function ProductList({ products, searchQuery }) {
-  // Define some state variables using the 'useState' hook
-  // 'selectedCategory' holds the currently selected category for filtering products
-  // 'wishlist' holds the list of products added to the wishlist
-  // 'favorites' holds the list of products marked as favorites
+
+  // Inside our 'ProductList', we need to remember the selected category.
+  // So, we use a special tool called 'useState', which gives us a special box (state) to store the selected category.
   const [selectedCategory, setSelectedCategory] = useState('');
   const [wishlist, setWishlist] = useState([]);
   const [favorites, setFavorites] = useState([]);
@@ -60,24 +59,17 @@ function ProductList({ products, searchQuery }) {
             selectedCategory={selectedCategory}
             onSelectCategory={handleSelectCategory}
           />
-          {/* Render the 'ProductListDisplay' component */}
-          <ProductListDisplay
-            products={products}
-            selectedCategory={selectedCategory}
-            searchQuery={searchQuery}
-            onAddToWishlist={addToWishlist}
-            onAddToFavorites={addToFavorites}
-          />
+         {/* We also show the 'ProductListDisplay' component inside this 'Col'. */}
+          {/* The 'ProductListDisplay' will show the list of products and handle search and filtering. */}
+          {/* We pass some messages (props) to it, like the list of products, the selected category, and the user's search query. */}
+          <ProductListDisplay products={products} selectedCategory={selectedCategory} searchQuery={searchQuery} />
         </Col>
 
         {/* Second Column (md=4) */}
         <Col md={4}>
-          {/* Render the 'Cart' component */}
+          {/* Inside this 'Col', we show the 'Cart' component. */}
+          {/* The 'Cart' will help us manage the items we want to buy. */}
           <Cart />
-          {/* Render the 'Wishlist' component */}
-          <Wishlist wishlist={wishlist} onRemoveFromWishlist={removeFromWishlist} />
-          {/* Render the 'Favorites' component */}
-          <Favorites favorites={favorites} onRemoveFromFavorites={removeFromFavorites} />
         </Col>
       </Row>
     </Container>
