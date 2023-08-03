@@ -74,7 +74,7 @@ function App() {
           {/* The 'Container' is like a special box that holds everything inside it. */}
           <Container className="mt-4">
             {/* We show a big title "EazyMarket" inside the container. */}
-            <h1 className="mb-4">EazyMarket</h1>
+            {/* <h1 className="mb-4">EazyMarket</h1> */}
             <SearchBar setSearchQuery={setSearchQuery} />
 
             {/* We show the 'ProductList' component inside the container. */}
