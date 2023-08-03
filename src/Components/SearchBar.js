@@ -1,8 +1,6 @@
-// First, we are bringing in some special tools we need to build our web page.
+// First, we need some special tools to build our web page.
 // The 'React' tool is like magic for making things on the screen change when we interact with them.
 import React, { useState } from 'react';
-
-// Then, we are getting some special design elements to make our search bar look nice.
 import { Navbar, Form, Button, FormControl } from 'react-bootstrap';
 import { FaSearch } from 'react-icons/fa';
 
