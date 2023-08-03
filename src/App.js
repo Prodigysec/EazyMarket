@@ -56,7 +56,7 @@ function App() {
     <UserProvider>
       {/* We say the name of our app: EazyMarket! */}
       <div className="container mt-4">
-        <h1 className="mb-4">EazyMarket</h1>
+        {/* <h1 className="mb-4">EazyMarket</h1> */}
         {/* We call the SearchBar component and give it the special 'setSearchQuery' function as a present. */}
         <SearchBar setSearchQuery={setSearchQuery} />
         {/* We call the ProductList component and give it the list of things (products) and the user's search query as presents. */}
