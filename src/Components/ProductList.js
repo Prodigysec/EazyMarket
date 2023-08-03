@@ -6,14 +6,10 @@ import { Container, Row, Col } from 'react-bootstrap';
 import Cart from './Cart';
 import CategoryFilter from './CategoryFilter';
 import ProductListDisplay from './ProductListDisplay';
+import SearchBar from './SearchBar';
 
-// Now, we want to make something called 'ProductList'.
-// It's like a special box that will hold everything related to showing products on our web page.
-// It takes a special message (prop) from the parent to know what products to show and what the user is searching for.
-function ProductList({ products, searchQuery }) {
-
-  // Inside our 'ProductList', we need to remember the selected category.
-  // So, we use a special tool called 'useState', which gives us a special box (state) to store the selected category.
+const ProductList = ({ products, searchQuery, setSearchQuery }) => {
+  // Define a state variable called selectedCategory and a function to update it called setSelectedCategory
   const [selectedCategory, setSelectedCategory] = useState('');
   const [wishlist, setWishlist] = useState([]);
   const [favorites, setFavorites] = useState([]);
@@ -59,17 +55,22 @@ function ProductList({ products, searchQuery }) {
             selectedCategory={selectedCategory}
             onSelectCategory={handleSelectCategory}
           />
-         {/* We also show the 'ProductListDisplay' component inside this 'Col'. */}
-          {/* The 'ProductListDisplay' will show the list of products and handle search and filtering. */}
-          {/* We pass some messages (props) to it, like the list of products, the selected category, and the user's search query. */}
-          <ProductListDisplay products={products} selectedCategory={selectedCategory} searchQuery={searchQuery} />
+          {/* Render the 'ProductListDisplay' component */}
+          <ProductListDisplay
+            products={products}
+            selectedCategory={selectedCategory}
+            searchQuery={searchQuery}
+            onAddToWishlist={addToWishlist}
+            onAddToFavorites={addToFavorites}
+          />
         </Col>
 
         {/* Second Column (md=4) */}
         <Col md={4}>
           {/* Inside this 'Col', we show the 'Cart' component. */}
           {/* The 'Cart' will help us manage the items we want to buy. */}
-          <Cart />
+          {/* <Cart /> */}
+          <SearchBar setSearchQuery={setSearchQuery} />
         </Col>
       </Row>
     </Container>
