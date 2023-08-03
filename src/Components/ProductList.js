@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
-import ProductCard from './ProductCard';
+
 import Cart from './Cart';
 import CategoryFilter from './CategoryFilter';
 import ProductListDisplay from './ProductListDisplay';

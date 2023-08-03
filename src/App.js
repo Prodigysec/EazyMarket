@@ -8,6 +8,7 @@ import Footer1 from './Components/Footer1';
 import Navbar from './Components/Navbar';
 import Hero1 from './Components/Hero1';
 import Testimonials from './Components/Testimonials';
+import ProductSlider from './Components/Categories';
 
 
 // We're using special tools called "React" and "axios" to help us create our app.
@@ -42,6 +43,8 @@ const App = () => {
     <>
     <Navbar />
     <Hero1 />
+    <ProductSlider />
+
   <ProductsProvider>
     <UserProvider>
       {/* We say the name of our app: EazyMarket! */}
