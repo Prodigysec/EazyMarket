@@ -1,0 +1,33 @@
+.search-icon-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+  }
+  
+  .search-icon {
+    font-size: 1.2rem;
+    margin-right: 10px;
+    transition: transform 0.3s ease;
+  }
+  
+  .search-icon.active {
+    transform: translateX(-40px);
+  }
+  
+  .search-input {
+    width: 200px;
+    transition: width 0.3s ease;
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+  
+  .search-icon-container.active .search-input {
+    opacity: 1;
+    visibility: visible;
+    width: 180px;
+  }
+  
