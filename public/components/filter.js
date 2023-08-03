@@ -1,4 +1,8 @@
+<<<<<<< HEAD
  // CategoryFilter.js
+=======
+// CategoryFilter.js
+>>>>>>> ad046be818b8b0dfc2368f87960dcd28c8e086db
 import React from 'react';
 
 const CategoryFilter = ({ categories, selectedCategory, onSelectCategory }) => {

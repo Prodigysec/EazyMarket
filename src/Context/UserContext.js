@@ -38,11 +38,9 @@ const UserProvider = ({ children }) => {
   // Finally, we put the cartItems, addToCart, clearCart, and totalPrice inside the magical box (UserContext) so that all the parts of our app can access this information.
   return (
     <UserContext.Provider value={{ cartItems, addToCart, clearCart, totalPrice }}>
-      {/* We hand over all the parts of our app (the children) to the UserContext.Provider. This way, they can access the magical information inside the UserContext box. */}
       {children}
     </UserContext.Provider>
   );
 };
 
-// We say that the UserContext and UserProvider are special and can be used in our app.
 export { UserContext, UserProvider };

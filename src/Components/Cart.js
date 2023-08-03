@@ -2,8 +2,7 @@
 import React, { useContext } from 'react';
 import { Button } from 'react-bootstrap';
 // We have a magical box called "UserContext" where we keep important information about the user.
-import { UserContext } from '../contexts/UserContext';
-
+import { UserContext } from '../Context/UserContext'; // Make sure the path is correct
 const Cart = () => {
   // Now, we use our magical box (UserContext) to take out some information we need:
   // - "cartItems": It's like a little cart where we keep the products we added.

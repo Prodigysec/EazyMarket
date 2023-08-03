@@ -3,7 +3,7 @@ import React, { useContext } from 'react';
 import { Card, Button } from 'react-bootstrap';
 
 // Import the UserContext from the '../contexts/UserContext' file
-import { UserContext } from '../contexts/UserContext';
+import { UserContext } from '../Context/UserContext';
 
 // Define a new component named ProductCard and pass it two props: product and onClick
 const ProductCard = ({ product, onClick }) => {
