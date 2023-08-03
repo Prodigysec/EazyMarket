@@ -40,18 +40,14 @@ const App = () => {
   return (
     <>
     <Navbar />
-  <ProductsProvider>
     <UserProvider>
       {/* We say the name of our app: EazyMarket! */}
       <div className="container mt-4">
         <h1 className="mb-4">EazyMarket</h1>
         {/* We call the ProductList component and give it the list of things (products) as a present. */}
         <ProductList products={products} />
-        {/* We call the SearchBar component here, which is available in the Development branch */}
-        <SearchBar />
       </div>
     </UserProvider>
-    </ProductsProvider>
     <Footer1 />
     </>
   );
