@@ -7,6 +7,7 @@ import ProductsProvider from './Context/ProductsContext';
 import Footer1 from './Components/Footer1';
 import Navbar from './Components/Navbar';
 import Hero1 from './Components/Hero1';
+import Testimonials from './Components/Testimonials';
 
 
 // We're using special tools called "React" and "axios" to help us create our app.
@@ -53,6 +54,8 @@ const App = () => {
       </div>
     </UserProvider>
     </ProductsProvider>
+
+    <Testimonials />
     <Footer1 />
     </>
   );
