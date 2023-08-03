@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Navbar } from 'react-bootstrap';
 import axios from 'axios';
-import { ProductsProvider } from './Context/ProductsContext';
 import { UserProvider } from './Context/UserContext';
 import ProductList from './Components/ProductList';
 import SearchBar from './Components/SearchBar';
@@ -26,21 +25,19 @@ const App = () => {
 
   return (
     <>
-      <ProductsProvider>
-        <UserProvider>
-          <Navbar bg="light" expand="lg">
-            <Navbar.Brand href="#home">EazyMarket</Navbar.Brand>
-            <Navbar.Toggle aria-controls="basic-navbar-nav" />
-            <Navbar.Collapse id="basic-navbar-nav">
-              <SearchBar setSearchQuery={setSearchQuery} />
-            </Navbar.Collapse>
-          </Navbar>
-          <Container className="mt-4">
-            <h1 className="mb-4">EazyMarket</h1>
-            <ProductList products={products} searchQuery={searchQuery} />
-          </Container>
-        </UserProvider>
-      </ProductsProvider>
+      <UserProvider>
+        <Navbar bg="light" expand="lg">
+          <Navbar.Brand href="#home">EazyMarket</Navbar.Brand>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav">
+            <SearchBar setSearchQuery={setSearchQuery} />
+          </Navbar.Collapse>
+        </Navbar>
+        <Container className="mt-4">
+          <h1 className="mb-4">EazyMarket</h1>
+          <ProductList products={products} searchQuery={searchQuery} />
+        </Container>
+      </UserProvider>
       <Footer1 />
     </>
   );
