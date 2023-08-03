@@ -56,7 +56,7 @@ function App() {
       <div className="container mt-4">
         <h1 className="mb-4">EazyMarket</h1>
         {/* We call the ProductList component and give it the list of things (products) as a present. */}
-        <ProductList products={products} />
+        <ProductList products={products} searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
       </div>
     </UserProvider>
     <Footer1 />
