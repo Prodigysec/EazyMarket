@@ -4,7 +4,8 @@ import React, { useState, useEffect } from 'react';
 
 // Next, we get some special design elements to create our web page layout.
 // We import 'Container' and 'Navbar' from the 'react-bootstrap' library.
-import { Container, Navbar } from 'react-bootstrap';
+// import { Container, Navbar } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 
 // We also need a magical tool called 'axios' to fetch data from an external API.
 import axios from 'axios';
@@ -66,7 +67,7 @@ function App() {
               {/* The 'SearchBar' will help us search for specific products. */}
               {/* We pass a special spell (function) called 'setSearchQuery' to the 'SearchBar'. */}
               {/* This spell will remember what the user is searching for and update our 'searchQuery' box. */}
-              <SearchBar setSearchQuery={setSearchQuery} />
+              
             </Navbar.Collapse>
           </Navbar>
 
@@ -74,6 +75,7 @@ function App() {
           <Container className="mt-4">
             {/* We show a big title "EazyMarket" inside the container. */}
             <h1 className="mb-4">EazyMarket</h1>
+            <SearchBar setSearchQuery={setSearchQuery} />
 
             {/* We show the 'ProductList' component inside the container. */}
             {/* The 'ProductList' will show a list of products and handle search and filtering. */}
