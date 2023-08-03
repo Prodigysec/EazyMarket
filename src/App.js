@@ -18,6 +18,7 @@ import { UserProvider } from './Context/UserContext';
 import ProductList from './Components/ProductList';
 import SearchBar from './Components/SearchBar';
 import Footer1 from './Components/Footer1';
+import Navbar from './Components/Navbar';
 
 // Now, we want to make something called 'App'.
 // It's like the main box that will hold everything on our web page.
