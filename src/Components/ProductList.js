@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 
 // Import other custom components used in this file
-import Cart from './Cart';
+// import Cart from './Cart';
 import CategoryFilter from './CategoryFilter';
 import ProductListDisplay from './ProductListDisplay';
 import SearchBar from './SearchBar';
