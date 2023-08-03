@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Container } from 'react-bootstrap';
 import { ProductsProvider } from './Context/ProductsContext';
@@ -8,7 +8,7 @@ import SearchBar from './Components/SearchBar';
 import Footer1 from './Components/Footer1';
 import Navbar from './Components/Navbar';
 
-const App = () => {
+function App() {
   const [products, setProducts] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
 
