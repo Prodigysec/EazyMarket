@@ -56,3 +56,4 @@ function ProductDetails({ product, onBackToList }) {
 
 // After all this magic, we want to share our special 'ProductDetails' box with others, so they can use it too!
 export default ProductDetails;
+
