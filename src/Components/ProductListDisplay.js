@@ -1,77 +1,86 @@
-// First, we need some special tools to build our web page.
-// The 'React' tool is like magic for making things on the screen change when we interact with them.
-import React, { useState } from 'react';
+// Import necessary libraries and components from 'react', 'react-bootstrap', and 'react-bootstrap-icons'
+import React, { useState, useContext } from 'react';
+import { Row, Col, Button, Card } from 'react-bootstrap';
+import { CartFill, Heart, Star } from 'react-bootstrap-icons'; // Import Bootstrap Icons
 
-// Then, we get some special design elements to create our web page layout.
-// We import 'Row' and 'Col' from the 'react-bootstrap' library.
-import { Row, Col } from 'react-bootstrap';
-
-// Next, we need two custom components that we made in other files.
-// These components help us show product cards and product details.
+// Import other custom components used in this file
 import ProductCard from './ProductCard';
 import ProductDetails from './ProductDetails';
+import { UserContext } from '../Context/UserContext';
 
-// Now, we want to make something called 'ProductListDisplay'.
-// It's like a special box that shows a list of products on our web page.
-// It takes some special messages (props) from the parent to know what products to show, which category is selected, and what the user is searching for.
-function ProductListDisplay({ products, selectedCategory, searchQuery }) {
+// Define the 'ProductListDisplay' component and pass it props: 'products', 'selectedCategory', 'searchQuery', 'onAddToWishlist', and 'onAddToFavorites'
+const ProductListDisplay = ({ products, selectedCategory, searchQuery, onAddToWishlist, onAddToFavorites }) => {
+  // Define state variable 'selectedProduct' and 'setSelectedProduct' using the 'useState' hook
+  // 'selectedProduct' holds the currently selected product when clicked, and 'setSelectedProduct' is used to update the state
+  const [selectedProduct, setSelectedProduct] = useState(null);
 
-  // Inside our 'ProductListDisplay', we need to remember the ID of the product the user clicks on.
-  // So, we use a special tool called 'useState', which gives us a special box (state) to store the selected product ID.
-  const [selectedProductId, setSelectedProductId] = useState(null);
+  // Use the 'useContext' hook to access the 'addToCart' function and 'cart' state from the 'UserContext'
+  const { addToCart, cart } = useContext(UserContext);
 
-  // We also need a magic spell (function) called 'handleProductClick'.
-  // When the user clicks on a product, this spell will take the product's ID and put it into our special box using the 'setSelectedProductId' tool.
+  // Define a function 'handleProductClick' to handle the click event when a product is selected
+  // When a product is clicked, this function updates the 'selectedProduct' state with the product ID
   const handleProductClick = (productId) => {
-    setSelectedProductId(productId);
+    setSelectedProduct(productId);
   };
 
-  // Now, we want to find all the unique categories from our list of products and put them in an array.
-  // We use the magic tool called 'Set' to help us with this.
-  const categories = [...new Set(products.map((product) => product.category))];
-
-  // Next, we want to filter our products based on the selected category.
-  // If a category is selected, we keep only the products that belong to that category; otherwise, we keep all the products.
+  // Filter the products based on the selected category and search query
   const filteredProducts = selectedCategory
     ? products.filter((product) => product.category === selectedCategory)
     : products;
-
-  // Now, we want to search for products if the user typed something in the search box.
-  // We look for products whose title includes the search query, and we do this in a case-insensitive way to make it easy for the user.
   const searchResults = searchQuery
-    ? filteredProducts.filter((product) =>
-        product.title.toLowerCase().includes(searchQuery.toLowerCase())
-      )
+    ? filteredProducts.filter((product) => product.title.toLowerCase().includes(searchQuery.toLowerCase()))
     : filteredProducts;
 
-  // After all this magic, we want to find the product that matches the selected product ID.
-  // This will be the product that the user clicked on, and we'll show its details on the screen.
-  const selectedProduct = filteredProducts.find((product) => product.id === selectedProductId);
-
-  // Finally, we return the things we want to show on the screen.
+  // Return the JSX (React elements) to be rendered on the screen
   return (
     <div>
-      {/* If we found a selected product (meaning the user clicked on a product), */}
-      {/* we show the 'ProductDetails' component to display the product's details and a button to go back to the product list. */}
+      {/* Conditionally render the 'ProductDetails' component if 'selectedProduct' is not null */}
       {selectedProduct && (
-        <ProductDetails product={selectedProduct} onBackToList={() => setSelectedProductId(null)} />
+        <ProductDetails product={selectedProduct} onBackToList={() => setSelectedProduct(null)} />
       )}
 
-      {/* We want to show the product cards in a row, and we use 'Row' and 'Col' for that. */}
-      {/* Each 'Col' will contain a 'ProductCard' component to show a product's information. */}
-      {/* We loop through the 'searchResults' array to show all the products that match the search or selected category. */}
-      <Row xs={1} md={2} lg={4}>
+      {/* Render the product cards using the 'Row', 'Col', and 'Card' components from 'react-bootstrap' */}
+      <Row xs={1} md={2} lg={4} className="g-4">
         {searchResults.map((product) => (
           <Col key={product.id} className="mb-4">
-            {/* We pass each product to the 'ProductCard' component to show its details. */}
-            {/* We also add a magic spell (event handler) so that when the user clicks on a product, we remember its ID. */}
-            <ProductCard product={product} onClick={() => handleProductClick(product.id)} />
+            <Card className="product-card">
+              {/* Display the product thumbnail image */}
+              <Card.Img variant="top" src={product.image} onClick={() => handleProductClick(product.id)} />
+              <Card.Body>
+                {/* Display the product title */}
+                <Card.Title className="card-title">{product.title}</Card.Title>
+                {/* Display the product price */}
+                <Card.Text className="card-text">
+                  <strong>Price: Ksh {product.price}</strong>
+                </Card.Text>
+                <div className="d-flex justify-content-between align-items-center">
+                  {/* Render the 'Add to Cart' button */}
+                  <div>
+                    <Button variant="primary" onClick={() => addToCart(product)}>
+                      {/* Replace the text with the cart icon using the 'CartFill' icon */}
+                      <CartFill size={20} className="cart-icon" />
+                    </Button>
+                  </div>
+                  {/* Render the 'Add to Wishlist' and 'Add to Favorites' buttons */}
+                  <div className="d-flex">
+                    <Button variant="outline-primary" onClick={() => onAddToWishlist(product.id)} className="logo-button">
+                      {/* Display the "wishlist" logo using the 'Star' icon */}
+                      <Star size={20} className="logo" />
+                    </Button>
+                    <Button variant="outline-danger" onClick={() => onAddToFavorites(product.id)} className="logo-button">
+                      {/* Display the "love" logo using the 'Heart' icon */}
+                      <Heart size={20} className="logo" />
+                    </Button>
+                  </div>
+                </div>
+              </Card.Body>
+            </Card>
           </Col>
         ))}
       </Row>
     </div>
   );
-}
+};
 
-// After all this magic, we want to share our special 'ProductListDisplay' box with others, so they can use it too!
+// Export the 'ProductListDisplay' component so that other parts of the app can use it
 export default ProductListDisplay;
