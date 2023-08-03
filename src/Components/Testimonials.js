@@ -10,7 +10,7 @@ const Testimonials = () => {
       <h1 className="mb-4" style={{fontFamily:"Lato", color:'green'}}>Testimonials</h1>
       <p className="mb-4 pb-2 mb-md-5 pb-md-0">
         Hear what some of our customers have to say about our exeptional service and wide range of products
-        You can also let us know what u think by filling in the review <a href="https://www.google.com" style={{textDecoration: 'none',color:'green'}}>here</a>
+        You can also let us know what u think by sending your review to the email below.
       </p>
     </div>
   </div>

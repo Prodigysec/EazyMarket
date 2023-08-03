@@ -22,6 +22,8 @@ import Navbar from './Components/Navbar';
 import Hero1 from './Components/Hero1';
 import Testimonials from './Components/Testimonials';
 import ProductSlider from './Components/Categories';
+import Addbanner from './Components/Addbanner';
+import Categories from './Components/Categories';
 
 // Now, we want to make something called 'App'.
 // It's like the main box that will hold everything on our web page.
@@ -54,14 +56,22 @@ function App() {
   return (
     <>
     <Navbar />
+    
+    <Addbanner/>
+    <Categories />
+   
+    
     <UserProvider>
       {/* We say the name of our app: EazyMarket! */}
       <div className="container mt-4">
-        <h1 className="mb-4">EazyMarket</h1>
+        <h1 className="mb-4" style={{color:"green", fontFamily:"Helvetica", fontWeight:"700"}}>Our Products</h1>
         {/* We call the ProductList component and give it the list of things (products) as a present. */}
         <ProductList products={products} searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
       </div>
     </UserProvider>
+   
+    
+    <Testimonials />
     <Footer1 />
     </>
   );

@@ -20,7 +20,7 @@ const Footer1 = () => {
           {/* Column 2 */}
           <div className="col-md-3 col-sm-6">
             {/* We show some information about the company inside this column. */}
-            <h4 style={{color:'orange'}}>About us</h4>
+            <h4 style={{color:'orange', paddingBottom:"50px"}}>About us</h4>
             <p>Easy Market is your one stop store <br/>
               for your favourite range of goods<br/>
               We stock a wide variety of products <br/>
@@ -32,7 +32,7 @@ const Footer1 = () => {
           {/* Column 3 */}
           <div className="col-md-3 col-sm-6">
             {/* We show a list of categories inside this column. */}
-            <h4 style={{color:'orange'}}>Our Categories</h4>
+            <h4 style={{color:'orange', paddingBottom:"50px"}}>Our Categories</h4>
             <ul className="list-unstyled">
               <li>Electronics</li>
               <li>Jewelry</li>
@@ -44,7 +44,7 @@ const Footer1 = () => {
           {/* Column 4 */}
           <div className="col-md-3 col-sm-6">
             {/* We show contact information inside this column. */}
-            <h4 style={{color:'orange'}}>Contact us</h4>
+            <h4 style={{color:'orange',paddingBottom:"50px"}}>Contact us</h4>
             <ul className="list-unstyled">
               <li>Tel: 0712 123 123</li>
               <li>Email: info@esymarket.com</li>
