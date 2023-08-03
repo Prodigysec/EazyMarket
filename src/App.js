@@ -3,10 +3,10 @@ import axios from 'axios';
 import { UserProvider } from './Context/UserContext';
 import ProductList from './Components/ProductList';
 import SearchBar from './Components/SearchBar';
-import ProductsContext from './Context/ProductsContext';
 import ProductsProvider from './Context/ProductsContext';
 import Footer1 from './Components/Footer1';
 import Navbar from './Components/Navbar';
+import Hero1 from './Components/Hero1';
 
 
 // We're using special tools called "React" and "axios" to help us create our app.
@@ -40,6 +40,7 @@ const App = () => {
   return (
     <>
     <Navbar />
+    <Hero1 />
   <ProductsProvider>
     <UserProvider>
       {/* We say the name of our app: EazyMarket! */}
