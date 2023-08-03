@@ -8,7 +8,7 @@ import CategoryFilter from './CategoryFilter';
 import ProductListDisplay from './ProductListDisplay';
 import SearchBar from './SearchBar';
 
-const ProductList = ({ products, searchQuery }) => {
+const ProductList = ({ products, searchQuery, setSearchQuery }) => {
   // Define a state variable called selectedCategory and a function to update it called setSelectedCategory
   const [selectedCategory, setSelectedCategory] = useState('');
   const [wishlist, setWishlist] = useState([]);
@@ -70,7 +70,7 @@ const ProductList = ({ products, searchQuery }) => {
           {/* Inside this 'Col', we show the 'Cart' component. */}
           {/* The 'Cart' will help us manage the items we want to buy. */}
           {/* <Cart /> */}
-          <SearchBar />
+          <SearchBar setSearchQuery={setSearchQuery} />
         </Col>
       </Row>
     </Container>
