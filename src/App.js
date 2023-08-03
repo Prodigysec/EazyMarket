@@ -6,6 +6,7 @@ import SearchBar from './Components/SearchBar';
 import ProductsContext from './Context/ProductsContext';
 import ProductsProvider from './Context/ProductsContext';
 import Footer1 from './Components/Footer1';
+import Navbar from './Components/Navbar';
 
 
 // We're using special tools called "React" and "axios" to help us create our app.
@@ -38,6 +39,7 @@ const App = () => {
   // We also give the things in our "products" box to the ProductList component.
   return (
     <>
+    <Navbar />
   <ProductsProvider>
     <UserProvider>
       {/* We say the name of our app: EazyMarket! */}
