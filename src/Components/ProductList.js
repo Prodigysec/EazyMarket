@@ -4,6 +4,7 @@ import ProductCard from './ProductCard';
 import Cart from './Cart';
 import CategoryFilter from './CategoryFilter';
 import ProductListDisplay from './ProductListDisplay';
+import SearchBar from './SearchBar';
 
 const ProductList = ({ products }) => {
   // Define a state variable called selectedCategory and a function to update it called setSelectedCategory
@@ -42,7 +43,8 @@ const ProductList = ({ products }) => {
         </Col>
         {/* Render the Cart component in a separate column */}
         <Col md={4}>
-          <Cart />
+          {/* <Cart /> */}
+          <SearchBar />
         </Col>
       </Row>
     </Container>
