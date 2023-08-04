@@ -11,13 +11,12 @@ import axios from 'axios';
 
 // Now, we want to use something called 'ProductsProvider' and 'UserProvider'.
 // These are like special boxes that will hold some important data for us.
-// import { ProductsProvider } from './Context/ProductsContext';
+import { ProductsProvider } from './Context/ProductsContext';
 import { UserProvider } from './Context/UserContext';
 
 // Next, we need some custom components that we made in other files.
 import ProductList from './Components/ProductList';
 import SearchBar from './Components/SearchBar';
-import ProductsProvider from './Context/ProductsContext';
 import Footer1 from './Components/Footer1';
 import Navbar from './Components/Navbar';
 import Hero1 from './Components/Hero1';
@@ -55,7 +54,6 @@ function App() {
     <>
     <Navbar />
     <Hero1 />
-  <ProductsProvider>
     <UserProvider>
       {/* We say the name of our app: EazyMarket! */}
       <div className="container mt-4">
@@ -66,8 +64,6 @@ function App() {
         <ProductList products={products} searchQuery={searchQuery} />
       </div>
     </UserProvider>
-    </ProductsProvider>
-
     <Testimonials />
     <Footer1 />
     </>
