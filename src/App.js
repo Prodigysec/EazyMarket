@@ -19,6 +19,7 @@ import ProductList from './Components/ProductList';
 import SearchBar from './Components/SearchBar';
 import Footer1 from './Components/Footer1';
 import Navbar from './Components/Navbar';
+import Hero1 from './Components/Hero1';
 
 // Now, we want to make something called 'App'.
 // It's like the main box that will hold everything on our web page.
@@ -51,10 +52,11 @@ function App() {
   return (
     <>
     <Navbar />
+    <Hero1 />
     <UserProvider>
       {/* We say the name of our app: EazyMarket! */}
       <div className="container mt-4">
-        <h1 className="mb-4">EazyMarket</h1>
+        {/* <h1 className="mb-4">EazyMarket</h1> */}
         {/* We call the SearchBar component and give it the special 'setSearchQuery' function as a present. */}
         <SearchBar setSearchQuery={setSearchQuery} />
         {/* We call the ProductList component and give it the list of things (products) and the user's search query as presents. */}
