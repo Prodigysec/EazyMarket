@@ -38,7 +38,7 @@ const ProductCard = ({ product, onClick }) => {
         {/* Display the formatted price of the product as the card text */}
         <Card.Text>{formatPrice(product.price)}</Card.Text>
         {/* Render a button labeled "Add to Cart" that, when clicked, calls the handleAddToCart function */}
-        <Button variant="primary" onClick={handleAddToCart}>
+        <Button variant="warning" onClick={handleAddToCart}>
           Add to Cart
         </Button>
       </Card.Body>

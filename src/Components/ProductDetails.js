@@ -45,7 +45,7 @@ function ProductDetails({ product, onBackToList }) {
           {/* Finally, we show a button with a label "Back to Product List". */}
           {/* When the user clicks on this button, we do something magical using the 'onClick' event. */}
           {/* We call the special spell (function) 'onBackToList' to go back to the product list. */}
-          <Button variant="primary" onClick={onBackToList}>
+          <Button variant="success" onClick={onBackToList}>
             Back to Product List
           </Button>
         </Col>
