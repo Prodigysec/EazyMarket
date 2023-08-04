@@ -7,14 +7,14 @@ const Hero1 = () => {
       <Carousel.Item>
         <img alt='First Slider '
           src={Hero}
-          style={{ objectFit: 'cover', width: '100%' }}
+          style={{ objectFit: 'cover', width: '100%'}}
         />
       </Carousel.Item>
 
+      
+      
 
-
-
-
+      
     </Carousel>
   );
 }
