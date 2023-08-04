@@ -1,12 +1,5 @@
 import React from 'react'
 import Logo from '../images/LogoH.png';
-import ProductsProvider from '../Context/ProductsContext';
-import SearchBar from './SearchBar';
-import { UserProvider } from '../Context/UserContext';
-import ProductList from './ProductList';
-
-
-
 
 
 const Navbar = () => {
@@ -41,16 +34,8 @@ const Navbar = () => {
         <li className="nav-item">
           <a className="nav-link" href="#">Womens Wear</a>
         </li>
-        
-        
       </ul>
 
-    
-
-       <form className="d-flex" role="search">
-        <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-        <button className="btn btn-outline-success" type="submit">Search</button>
-      </form> 
       
     </div>
   </div>
