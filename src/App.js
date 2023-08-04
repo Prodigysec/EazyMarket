@@ -20,6 +20,7 @@ import SearchBar from './Components/SearchBar';
 import Footer1 from './Components/Footer1';
 import Navbar from './Components/Navbar';
 import Hero1 from './Components/Hero1';
+import Testimonials from './Components/Testimonials';
 
 // Now, we want to make something called 'App'.
 // It's like the main box that will hold everything on our web page.
@@ -63,6 +64,7 @@ function App() {
         <ProductList products={products} searchQuery={searchQuery} />
       </div>
     </UserProvider>
+    <Testimonials />
     <Footer1 />
     </>
   );
